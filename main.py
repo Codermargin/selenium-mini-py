@@ -1,11 +1,17 @@
+from XMU.XMUExtractor import XMUExtractor
 from fetchStockDriver import FetchStockDriver
 
 def test():
     try:
-        stockUrl = 'https://m.1234567.com.cn/index.html?page=jjph&tab=qb'
-        driver = FetchStockDriver(stockUrl)
-        fundNamesArr = driver.getName()
-        print(f'基金排名表数据 -> {fundNamesArr}')
+        XMN_COMPUTER_URL = 'https://informatics.xmu.edu.cn/szdw/jcrc.htm'
+        a=[]
+        extractor = XMUExtractor(XMN_COMPUTER_URL)
+        res = extractor.getTutorInfo()
+        print(f'厦大信息学院数据 -> {res}')
+        # stockUrl = 'https://m.1234567.com.cn/index.html?page=jjph&tab=qb'
+        # driver = FetchStockDriver(stockUrl)
+        # fundNamesArr = driver.getName()
+        # print(f'基金排名表数据 -> {fundNamesArr}')
         # driver = CustomChromeDriver()
         # driver.goTo('https://app.ringcentral.com/')
         # driver.click('*[data-test-automation-id="login-enter"]')
